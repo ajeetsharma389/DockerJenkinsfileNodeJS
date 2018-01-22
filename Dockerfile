@@ -2,7 +2,7 @@
 FROM node:8
 
 # set maintainer
-LABEL maintainer "miiro@getintodevops.com"
+#LABEL maintainer "miiro@getintodevops.com"
 
 # run a command inside the container
 # this will create a directory for our application
