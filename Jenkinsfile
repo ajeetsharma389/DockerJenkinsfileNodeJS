@@ -3,14 +3,14 @@ node {
 
     stage('Clone repository') {
         /* Let's make sure we have the repository cloned to our workspace */
-
+		echo "Pulling code from repo"
         checkout scm
     }
 
     stage('Build image') {
         /* This builds the actual image; synonymous to
          * docker build on the command line */
-
+		echo "Building Docker image"
         app = docker.build("DockerJenkinsfileNodeJS/hello-node-app")
     }
 
