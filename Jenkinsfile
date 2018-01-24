@@ -8,7 +8,7 @@ pipeline
 				sh docker pull hello-world 
 			}	
 		}		
-		}
+		
 		stage('Deploy'){
 			steps{
 				echo "------ Runing docker hello world image ------"
