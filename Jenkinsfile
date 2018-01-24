@@ -11,7 +11,8 @@ node {
         /* This builds the actual image; synonymous to
          * docker build on the command line */
 		echo "Building Docker image"
-        app = docker.build("DockerJenkinsfileNodeJS/hello-node-app")
+        #app = docker.build("DockerJenkinsfileNodeJS/hello-node-app")
+        docker version
     }
 
     stage('Test image') {
