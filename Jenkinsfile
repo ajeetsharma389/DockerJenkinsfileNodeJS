@@ -5,9 +5,10 @@ pipeline
 		stage('Build'){
 			steps{
 				docker pull hello-world 
-			}			
+			}	
+		}		
 		}
-		stage(‘Deploy’){
+		stage('Deploy'){
 			steps{
 				docker run hello-world
 			}			
