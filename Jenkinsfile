@@ -4,13 +4,15 @@ pipeline
 	stages{
 		stage('Build'){
 			steps{
-				docker pull hello-world 
+				echo "------ Pulling docker hello world image ------"
+				sh docker pull hello-world 
 			}	
 		}		
 		}
 		stage('Deploy'){
 			steps{
-				docker run hello-world
+				echo "------ Runing docker hello world image ------"
+				sh docker run hello-world
 			}			
 		}
 	}
