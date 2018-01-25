@@ -11,7 +11,7 @@ pipeline
         stage('Deploy') {
             steps {
                 echo "npm deployed"
-                sh npm stop
+                npm stop
             }
         }
     }
