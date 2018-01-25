@@ -11,7 +11,7 @@ pipeline
         stage('Deploy') {
             steps {
                 echo "npm deployed"
-                npm stop
+                docker build -t "simple_flask:dockerfile" .
             }
         }
     }

@@ -1,21 +1,13 @@
- # use a node base image
-FROM node:8
+#
+# Super simple example of a Dockerfile
+#
+FROM ubuntu:latest
+MAINTAINER Andrew Odewahn "odewahn@oreilly.com"
 
-# set maintainer
-#LABEL maintainer "miiro@getintodevops.com"
+RUN apt-get update
+RUN apt-get install -y python python-pip wget
+RUN pip install Flask
 
-# run a command inside the container
-# this will create a directory for our application
-RUN mkdir -p /app
+ADD hello.py /home/hello.py
 
-# set the working directory to our app directory
-WORKDIR /app
-
-# copy our application inside the container
-COPY hello-node-app/* /app/
-
-# tell docker what port to expose
-EXPOSE 8000
-
-# tell docker what command to run when container is run
-CMD npm start
+WORKDIR /home
