@@ -1,17 +1,17 @@
 pipeline
 {
-	agent { 
-	docker 
-		{
-			image 'maven:3-alpine'
-			label 'slave1' 
-		}
-	}
+	agent { dockerfile true }
 	
 	stages {
-        stage('Example Build') {
+        stage('Build') {
             steps {
                 echo "npm started"
+            }
+        }
+        stage('Deploy') {
+            steps {
+                echo "npm deployed"
+                sh npm stop
             }
         }
     }
