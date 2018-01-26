@@ -10,5 +10,4 @@ RUN apt-get install -y python python-pip wget
 
 #ADD hello.py /home/hello.py
 
-#WORKDIR /home
-
+WORKDIR /var/jenkins/workspace/PipeLine Example
