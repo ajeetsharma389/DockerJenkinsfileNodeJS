@@ -10,4 +10,5 @@ RUN apt-get install -y python python-pip wget
 
 #ADD hello.py /home/hello.py
 
-WORKDIR /home
+#WORKDIR /home
+docker run -t -d -u 502:20 -w "/var/jenkins/workspace/PipeLine Example" -v "/var/jenkins/workspace/PipeLine
