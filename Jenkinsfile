@@ -5,14 +5,13 @@ pipeline
 	stages {
         stage('Build') {
             steps {
-                echo "Mounting Docker"
-                
+                echo "Mounting"
 
             }
         }
         stage('Deploy') {
             steps {
-                echo "Docker deployed"
+                echo " deployed"
             }
         }
     }
