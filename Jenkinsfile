@@ -10,10 +10,6 @@ node {
     stage('Build image') {
         /* This builds the actual image; synonymous to
          * docker build on the command line */
-         
-        # echo "Mouting image"
-        # sh docker run -d -v /var/run/docker.sock:/var/run/docker.sock jenkins
-
 		echo "Building Docker image"
         app = docker.build("ajeetsharma389/latest")
         
