@@ -10,8 +10,8 @@ node {
     stage('Build image') {
         /* This builds the actual image; synonymous to
          * docker build on the command line */
-		echo "Building Docker image"
-        app = docker.build("ajeetsharma389/latest")
+         echo "Building Docker image"
+         app = docker.build("ajeetsharma389/latest")
         
     }
 
