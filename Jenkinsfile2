@@ -1,0 +1,18 @@
+pipeline
+{
+	agent { dockerfile true }
+	
+	stages {
+        stage('Build') {
+            steps {
+                echo "Mounting"
+				docker --version
+            }
+        }
+        stage('Deploy') {
+            steps {
+                echo " deployed"
+            }
+        }
+    }
+}
