@@ -12,7 +12,7 @@ pipeline
         	agent{
         		docker
         			{
-        			image 'ubuntu:16.04'
+        			image 'maven:3.5.0-jdk-8'
         			reuseNode true
         			}
         	}
