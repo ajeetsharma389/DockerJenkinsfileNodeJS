@@ -12,7 +12,7 @@ pipeline
         	agent{
         		docker
         			{
-        			docker version
+        			image 'ubuntu:16.04'
         			reuseNode true
         			}
         	}
