@@ -1,8 +1,10 @@
 pipeline
 {
 	agent { 
-		label 'dockerslave'
-		customWorkspace '/Users/ajeet/jobs/'
+		node{
+			label 'dockerslave'
+			customWorkspace '/Users/ajeet/jobs/'
+		}
 	 }
 	
 	stages {
