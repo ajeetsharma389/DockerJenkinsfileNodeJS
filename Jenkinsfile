@@ -9,12 +9,16 @@ pipeline
 	
 	stages {
         stage('Build') {
-        agent{
-        	docker
-        		{
-        		reuseNode true
-        		}
+        	agent{
+        		docker
+        			{
+        			docker version
+        			reuseNode true
+        			}
         	}
+        	steps {
+        		echo "hello world"
+      		}
         }
         stage('Deploy') {
             steps {
