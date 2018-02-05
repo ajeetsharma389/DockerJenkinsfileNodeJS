@@ -12,7 +12,7 @@ node {
          * docker build on the command line */
          echo "Building Docker image"
          app = docker.build("ajeetsharma389/nodeapp:102")    
-         app.run('docker run -p 49160:8080 -d ajeetsharma389/nodeapp:102')
+         app.run('-p 9000:8080 -d ajeetsharma389/nodeapp:102')
         
     }
 
