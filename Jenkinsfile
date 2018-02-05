@@ -1,5 +1,7 @@
 pipeline
 {
+def myEnv
+	
 	agent { 
 		node{
 			label 'dockerslave'
@@ -17,7 +19,7 @@ pipeline
         stage('Build') {
         	
         	steps {
-        		def myEnv = docker.build 'ajeetsharma389/nodeapp:101'
+        		 myEnv = docker.build 'ajeetsharma389/nodeapp:101'
       		}
         }
         
