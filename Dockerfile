@@ -1,24 +1,38 @@
-#
-# Super simple example of a Dockerfile
-#
-FROM ubuntu:latest
-MAINTAINER Andrew Odewahn "odewahn@oreilly.com"
-ENV HOME /var/jenkins
+# use a node base image
+FROM node:carbon
 
-RUN addgroup -S -g 10000 jenkins
-RUN adduser -S -u 10000 -h $HOME -G jenkins jenkins
-LABEL Description="This is a base image, which provides the Jenkins agent executable (slave.jar)" Vendor="Jenkins project" Version="3.16"
+# set maintainer
+LABEL maintainer "Ajeet"
 
-ARG VERSION=3.16
-ARG AGENT_WORKDIR=/Users/ajeet/CICD/nodes/JenkinsSlave
+# Create app directory
+WORKDIR /usr/src/app
 
 
+# Install app dependencies
+# A wildcard is used to ensure both package.json AND package-lock.json are copied
+# where available (npm@5+)
 
-RUN apt-get update
-RUN apt-get install -y python python-pip wget
-#RUN pip install Flask
+COPY package*.json ./
 
-#ADD hello.py /home/hello.py
 
-#WORKDIR /var/jenkins/workspace/PipeLine Example
-RUN -v /var/jenkins_home/workspace/:/root/workspace
+
+RUN npm install
+
+# If you are building your code for production
+# RUN npm install --only=production
+
+#To bundle your app's source code inside the Docker image, use the COPY instruction:
+
+# Bundle app source
+COPY . .
+
+
+#Your app binds to port 8080 so you'll use the EXPOSE instruction to have it mapped by the docker daemon:
+# tell docker what port to expose
+EXPOSE 8080
+
+
+#define the command to run your app using CMD which defines your runtime. 
+#Here we will use the basic npm start which will run node server.js to start your server:
+
+CMD [ "npm", "start" ]

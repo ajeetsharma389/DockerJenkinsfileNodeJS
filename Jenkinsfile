@@ -8,21 +8,23 @@ pipeline
 	 }
 	
 	stages {
-        stage('Build') {
-        	agent{
-        		docker
-        			{
-        			image 'maven:3.5.0-jdk-8'
-        			reuseNode true
-        			}
-        	}
+        stage('Pulling') {
         	steps {
-        		echo "hello world"
+        		checkout scm
       		}
         }
+        
+        stage('Build') {
+        	
+        	steps {
+        		def myEnv = docker.build 'ajeetsharma389/nodeapp:101'
+      		}
+        }
+        
         stage('Deploy') {
             steps {
-                echo " deployed. Thanks!"
+                myEnv.run('docker run -p 49160:8080 -d ajeetsharma389/nodeapp:101')
+
             }
         }
     }
