@@ -19,12 +19,12 @@ node {
     }
 
     stage('Push image') {
-        * Finally, we'll push the image with two tags:
+         /*Finally, we'll push the image with two tags:
          * First, the incremental build number from Jenkins
          * Second, the 'latest' tag.
          * Pushing multiple tags is cheap, as all the layers are reused.
  			echo 'Pushing image ${shortCommit}'
-               /* withDockerRegistry([credentialsId: 'ajeetdocker', url: 'https://hub.docker.com/']) {
+                withDockerRegistry([credentialsId: 'ajeetdocker', url: 'https://hub.docker.com/']) {
                 	app.push("${shortCommit}")
         			app.push('latest')
                 }*/
