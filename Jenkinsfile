@@ -27,7 +27,7 @@ node {
                 withDockerRegistry([credentialsId: 'ajeetdocker', url: 'https://hub.docker.com/']) {
                 	app.push("${shortCommit}")
         			app.push('latest')
-                }*/
+                }
                 
         def DOCKER_REGISTRY_URI="https://hub.docker.com/"
         withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: 'ajeetdocker', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD']]) 
@@ -35,7 +35,12 @@ node {
 					sh "docker login --password=${PASSWORD} --username=${USERNAME} ${DOCKER_REGISTRY_URI}"
 					app.push("${shortCommit}")
         			app.push('latest')
-		}
+		}*/
+				docker.withRegistry('https://hub.docker.com/', 'ajeetdocker') {
+
+        			/* Push the container to the custom Registry */
+        			app.push()
+   					}
         	
       }
 }
