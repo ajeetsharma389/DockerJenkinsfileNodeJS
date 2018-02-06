@@ -13,7 +13,7 @@ node {
          * docker build on the command line */
          echo "Building Docker image----"
          sh 'docker run -d -v /var/run/docker.sock:/var/run/docker.sock jenkinsci/blueocean'
-		 sleep 300
+		 sleep 100
         
          	app = docker.build("ajeetsharma/nodeapp:101")    
          	app.run('-p 49160:8080')
