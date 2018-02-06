@@ -12,10 +12,10 @@ node {
         /* This builds the actual image; synonymous to
          * docker build on the command line */
          echo "Building Docker image----"
-         sh 'docker run -d -v /var/run/docker.sock:/var/run/docker.sock jenkinsci/blueocean'
-		 sleep 100
+         sh 'docker run -d --rm -v /var/run/docker.sock:/var/run/docker.sock jenkinsci/blueocean'
+		 sleep 70
         
-         	app = docker.build("ajeetsharma/nodeapp:101")    
+         	app = docker.build("ajeetnodeapp:101")    
          	app.run('-p 49160:8080')
         
     }
